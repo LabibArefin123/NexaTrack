@@ -1,0 +1,155 @@
+/* Base Reset */
+* {
+    font-family: "Inter", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Layout Offsets */
+main.flex-grow-1.container.py-4 {
+    padding-top: 136px; /* 72 + 64 */
+}
+
+/* Navbar sticks to top */
+.navbar-glass {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.75);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    user-select: none;
+}
+
+/* Search bar sticks below navbar */
+.search-wrapper {
+    position: sticky;
+    top: 90px; /* adjust based on actual navbar height */
+    z-index: 40;
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 0.5rem 0.75rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Search Input */
+#top-search-bar input {
+    max-width: 200px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 1rem;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+#top-search-bar input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.4);
+}
+
+/* Search Filter Inputs */
+#inlineFilterBox input,
+#inlineFilterBox select {
+    font-size: 0.95rem;
+}
+
+/* Suggestions Dropdown */
+#search-suggestions {
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 1060;
+    cursor: pointer;
+}
+
+#search-suggestions li {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    user-select: none;
+}
+
+#search-suggestions li.list-group-item-action:hover,
+#search-suggestions li.list-group-item-action:focus {
+    background-color: #ff9900;
+    color: white;
+    outline: none;
+}
+
+/* Scrollbar for Suggestions */
+#search-suggestions::-webkit-scrollbar {
+    width: 8px;
+}
+
+#search-suggestions::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+/* Logo */
+.logo-img {
+    max-height: 56px;
+}
+
+@media (max-width: 768px) {
+    .logo-img {
+        max-height: 48px;
+    }
+
+    #top-search-bar {
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    #top-search-bar input {
+        width: 100%;
+        font-size: 1.1rem;
+    }
+
+    .search-wrapper {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Navigation Links Hover (Parallelogram) */
+.parallelogram-hover {
+    position: relative;
+    display: inline-block;
+    padding: 8px 16px;
+    color: #111827;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.parallelogram-hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    transform: skew(-20deg);
+    transition: background-color 0.3s ease;
+    z-index: -1;
+}
+
+.parallelogram-hover:hover,
+.parallelogram-hover:focus {
+    color: white;
+    outline: none;
+}
+
+.parallelogram-hover:hover::before,
+.parallelogram-hover:focus::before {
+    background-color: #ff9900;
+}
+
+/* Footer Hover */
+footer a:hover,
+footer a:focus {
+    color: #ff9900 !important;
+    outline: none;
+}
